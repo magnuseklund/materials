@@ -4,7 +4,8 @@ namespace MaterialsDomain
 {
     public static class Check
     {
-        public static void IsNotNull(object obj, string param)
+        public static void IsNotNull<T>(T obj, string param)
+            where T : class
         {
             if(obj != null)
             {
@@ -12,6 +13,16 @@ namespace MaterialsDomain
             }
 
             throw new ArgumentNullException(param);
+        }
+
+        public static void IsNotNegative(int value, string param)
+        {
+            if(value >= 0)
+            {
+                return;
+            }
+
+            throw new ArgumentOutOfRangeException(param);
         }
 
         public static void IsNotNullOrWhitespace(string value, string param)
