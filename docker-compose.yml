@@ -1,0 +1,30 @@
+version: '2.2'
+
+services:
+
+  projects.api:
+    image: materialsmanager.api
+    build: 
+        context: ./MaterialsDomain.Api
+        dockerfile: Dockerfile.debug
+    ports:
+      - 5000:80
+    volumes:
+      - ./MaterialsDomain.api/bin/pub/:/app
+    container_name: projects.api
+    environment: 
+      - RedisHost=projects.data:6379
+    depends_on:
+      - projects.data
+      - rabbitmq
+
+  projects.data:
+    image: redis
+    ports:
+      - 6379:6379
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    container_name: rabbitmq
