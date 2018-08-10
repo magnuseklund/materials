@@ -3,6 +3,8 @@ using StackExchange.Redis;
 using MaterialsDomain.Api.Models;
 using System.Threading.Tasks;
 using MaterialsDomain.Api.ReadModels;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MaterialsDomain.Api.Data
 {
@@ -22,7 +24,7 @@ namespace MaterialsDomain.Api.Data
             return JsonConvert.DeserializeObject<ProjectListViewModel>(data);
         }
 
-        public async Task CreateAsync(string projectName)
+        public async Task CreateAsync(ProjectViewModel project)
         {
             var data = await _database.StringGetAsync(nameof(ProjectListview));
             
@@ -30,9 +32,9 @@ namespace MaterialsDomain.Api.Data
             {
                 var list = JsonConvert.DeserializeObject<ProjectListViewModel>(data);
 
-                if(!list.Projects.Contains(projectName))
+                if(!list.Projects.Any(x => x.Name == project.Name))
                 {
-                    list.Projects.Add(projectName);
+                    list.Projects.Add(project);
 
                     await _database.StringSetAsync(nameof(ProjectListview), JsonConvert.SerializeObject(list));
                 }
@@ -41,9 +43,14 @@ namespace MaterialsDomain.Api.Data
             }
 
             var model = new ProjectListViewModel();
-            model.Projects.Add(projectName);
+            model.Projects.Add(project);
 
             await _database.StringSetAsync(nameof(ProjectListview), JsonConvert.SerializeObject(model));
+        }
+
+        public Task<IEnumerable<ProjectViewModel>> GetProjects()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

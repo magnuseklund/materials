@@ -6,7 +6,7 @@ services:
     image: materialsmanager.api
     build: 
         context: ./MaterialsDomain.Api
-        dockerfile: Dockerfile.debug
+        dockerfile: Dockerfile
     ports:
       - 5000:80
     volumes:

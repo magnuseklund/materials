@@ -20,7 +20,11 @@ namespace MaterialsDomain.Api.ReadModels
 
         public async Task Handle(ProjectCreated message, CancellationToken token = default(CancellationToken))
         {
-            await _projectRepository.CreateAsync(message.Name);
+            await _projectRepository.CreateAsync(new ProjectViewModel 
+            {
+                Name = message.Name, 
+                Id = message.Id
+            });
         }
     }
 }

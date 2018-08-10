@@ -2,8 +2,9 @@ using System.Collections.Generic;
 
 namespace MaterialsDomain.Api.ReadModels
 {
+
     public class ProjectListViewModel
     {
-        public List<string> Projects { get; } = new List<string>();
+        public List<ProjectViewModel> Projects { get; } = new List<ProjectViewModel>();
     }
 }
