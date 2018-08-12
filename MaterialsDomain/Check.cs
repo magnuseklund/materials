@@ -4,6 +4,16 @@ namespace MaterialsDomain
 {
     public static class Check
     {
+        public static void IsOfType<T>(object obj, string param)
+        {
+            if(obj.GetType() == typeof(T))
+            {
+                return;
+            }
+
+            throw new ArgumentException(param);
+        }
+
         public static void IsNotNull<T>(T obj, string param)
             where T : class
         {
