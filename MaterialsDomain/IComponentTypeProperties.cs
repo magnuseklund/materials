@@ -32,7 +32,7 @@ namespace MaterialsDomain
 
         public override string ToString()
         {
-            return $"{ResistanceValue} ohm";
+            return string.Format(new ResistanceFormatter(), "S", this);
         }
     }
 
@@ -89,10 +89,10 @@ namespace MaterialsDomain
             if(r.ResistanceValue >= 1000 && r.ResistanceValue < 1000000)
             {
                 // 1k 
-                return $"{r.ResistanceValue / 1000}k";
+                return $"{r.ResistanceValue / 1000}K";
             }
 
-            throw new NotImplementedException();
+            return $"{r.ResistanceValue / 1000000}M";
         }
 
         public object GetFormat(Type formatType)

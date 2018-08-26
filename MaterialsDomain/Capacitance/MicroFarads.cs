@@ -1,25 +1,25 @@
+using System;
+
 namespace MaterialsDomain
 {
     public struct MicroFarads
     {
-        private readonly decimal _value;
-
         private readonly FaradsSpecification _faradsSpecification;
 
-        public MicroFarads(decimal value)
+        public MicroFarads(double value)
         {
-            _value = value;
+            Value = value;
             _faradsSpecification = new FaradsSpecification('µ', 10^-6);
         }
 
-        public decimal Value { get { return _value; } }
+        public double Value { get; }
 
-        public static implicit operator decimal(MicroFarads mf)
+        public static implicit operator double(MicroFarads mf)
         {
             return mf.Value;
         }
 
-        public static implicit operator MicroFarads(decimal value)
+        public static implicit operator MicroFarads(double value)
         {
             return new MicroFarads(value);
         }
@@ -31,7 +31,7 @@ namespace MaterialsDomain
 
         public static implicit operator PicoFarads(MicroFarads mf)
         {
-            return new PicoFarads((mf * 1000000).Value);
+            return new PicoFarads((long)(mf * 1000000).Value);
         }
 
         public static MicroFarads operator *(MicroFarads mf, int x)
@@ -41,8 +41,7 @@ namespace MaterialsDomain
 
         public override string ToString()
         {
-            return $"{_value} {_faradsSpecification.SiSymbol}F";
+            return $"{Value} {_faradsSpecification.SiSymbol}F";
         }
     }
-
 }

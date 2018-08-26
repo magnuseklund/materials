@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialsDomain.Api", "Mate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialsDomain.Client", "MaterialsDomain.Client\MaterialsDomain.Client.csproj", "{7570C567-9EEE-45F3-B24A-7B7FC036F151}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialsDomain.Tests", "MaterialsDomain.Tests\MaterialsDomain.Tests.csproj", "{EEB457C7-F15B-47EF-BC84-93B20BB44340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{7570C567-9EEE-45F3-B24A-7B7FC036F151}.Release|x64.Build.0 = Release|x64
 		{7570C567-9EEE-45F3-B24A-7B7FC036F151}.Release|x86.ActiveCfg = Release|x86
 		{7570C567-9EEE-45F3-B24A-7B7FC036F151}.Release|x86.Build.0 = Release|x86
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|x64.ActiveCfg = Debug|x64
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|x64.Build.0 = Debug|x64
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|x86.ActiveCfg = Debug|x86
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Debug|x86.Build.0 = Debug|x86
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|x64.ActiveCfg = Release|x64
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|x64.Build.0 = Release|x64
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|x86.ActiveCfg = Release|x86
+		{EEB457C7-F15B-47EF-BC84-93B20BB44340}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
